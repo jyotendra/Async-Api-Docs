@@ -1,0 +1,37 @@
+{
+  "name": "async-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "exec": "npm run delete-build && npm run compile && node ./build/src/index.js && npm run copy-folders && npm run generate-swagger",
+    "copy-folders": "./node_modules/.bin/gulp copy-folder",
+    "generate-swagger": "./node_modules/.bin/gulp generate-swagger",
+    "delete-build": "./node_modules/.bin/gulp delete-build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^11.13.8",
+    "asyncapi-generator": "^0.6.7",
+    "fs-extra": "^7.0.1",
+    "js-yaml": "^3.13.1",
+    "mkdirp": "^0.5.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.5",
+    "gts": "^1.0.0",
+    "gulp": "^4.0.1",
+    "typescript": "~3.4.0"
+  }
+}
